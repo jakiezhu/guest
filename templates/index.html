@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+</head>
+<body>
+    <div class="divForm">
+        <form method="post" action="/login_action/">
+            <input name="username" type="text" placeholder="用户名"><br>
+            <input name="password" type="password" placeholder="密码"><br>
+            {{ error }}<br>
+            <button id="btn" type="submit">登录</button>
+            {% csrf_token %}
+        </form>
+    </div>
+</body>
+<style type="text/css">
+    .divForm{
+        position: absolute;/*绝对定位*/
+        width: 300px;
+        height: 200px;
+
+        {#border: 1px solid red;#}
+        text-align: center;/*(让div中的内容居中)*/
+        top: 50%;
+        left: 50%;
+        margin-top: -200px;
+        margin-left: -150px;
+    }
+</style>
+</html>
