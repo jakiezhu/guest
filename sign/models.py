@@ -6,7 +6,7 @@ class Event(models.Model):
     limit = models.IntegerField()               # 参加人数
     status = models.BooleanField()              # 状态
     address = models.CharField(max_length=200)  # 地址
-    start_time = models.DateTimeField('event_time')     # 发布会时间
+    start_time = models.DateTimeField('events_time')     # 发布会时间
     create_time = models.DateTimeField(auto_now=True)   # 创建时间
 
     def __str__(self):
