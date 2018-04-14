@@ -3,8 +3,11 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from sign.models import Event, Guest
+<<<<<<< HEAD
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+=======
+>>>>>>> origin/master
 
 def index(request):
     return render(request, 'index.html')
@@ -29,6 +32,7 @@ def login_action(request):
 def event_manage(request):
     # username = request.COOKIES.get("user", '')
     event_list = Event.objects.all()
+<<<<<<< HEAD
     username = request.session.get('user', '')
     return render(request, 'event_manage.html', {'user': username, 'events': event_list})
 
@@ -107,3 +111,22 @@ def sign_index_action(request, event_id):
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect('/index/')
+=======
+    username = request.session.get('user', '')
+    return render(request, 'event_manage.html', {'user': username, 'events':event_list})
+
+
+@login_required
+def search_name(request):
+    username = request.session.get('user', '')
+    search_name = request.GET.get("name", "")
+    event_list = Event.objects.filter(name__contains=search_name)
+    return render(request, "event_manage.html", {"user": username, "events": event_list})
+
+
+@login_required
+def guest_manage(request):
+    username = request.session.get('user', '')
+    guest_list = Guest.objects.all()
+    return render(request, 'guest_manage.html', {"user": username, "guests": guest_list})
+>>>>>>> origin/master

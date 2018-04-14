@@ -1,10 +1,18 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="zh-CN">
+=======
+<html lang="en">
+>>>>>>> origin/master
 <head>
     {% load bootstrap3 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
+<<<<<<< HEAD
     <title>发布会管理系统</title>
+=======
+    <title>嘉宾列表</title>
+>>>>>>> origin/master
 </head>
 <body role="document">
     <!-- 导航栏 -->
@@ -26,8 +34,13 @@
         </div>
     </nav>
 
+<<<<<<< HEAD
     <!-- 搜索-->
     <div class="page-header" style="padding-top: 40px">
+=======
+    <!-- 发布会搜索表单
+    <div class="page-header" style="padding-top: 60px;">
+>>>>>>> origin/master
         <div id="navbar" class="navbar-collapse collapse">
             <form class="navbar-form" method="get" action="/search_guest/">
                 <div class="form-group">
@@ -36,6 +49,7 @@
                 <button type="submit" class="btn btn-success">搜索</button>
             </form>
         </div>
+<<<<<<< HEAD
     </div>
     <!--嘉宾列表-->
     <div class="row" style="padding-top: 40px;">
@@ -46,6 +60,19 @@
                         <th>id</th><th>名字</th><th>手机号</th><th>邮箱</th><th>签到</th><th>发布会</th>
                     </tr>
                 </thread>
+=======
+    </div>-->
+
+    <!-- 发布会列表 -->
+    <div class="row" style="padding-top: 80px;">
+        <div class="col-md-6">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>id</th><th>名称</th><th>状态</th><th>地址</th><th>时间</th>
+                    </tr>
+                </thead>
+>>>>>>> origin/master
                 <tbody>
                     {% for guest in guests %}
                         <tr>
@@ -54,14 +81,21 @@
                             <td>{{ guest.phone }}</td>
                             <td>{{ guest.email }}</td>
                             <td>{{ guest.sign }}</td>
+<<<<<<< HEAD
                             <td>{{ guest.create_time }}</td>
                         </tr>
                     {% endfor %}
 
+=======
+                            <td>{{ guest.event }}</td>
+                        </tr>
+                    {% endfor %}
+>>>>>>> origin/master
                 </tbody>
             </table>
         </div>
     </div>
+<<<<<<< HEAD
     <!--列表分页器-->
     <div class="paginator">
         <span class="step-links">
@@ -77,5 +111,7 @@
         </span>
     </div>
 
+=======
+>>>>>>> origin/master
 </body>
 </html>
