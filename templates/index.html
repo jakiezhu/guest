@@ -1,19 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>Hello World</title>
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>发布会管理系统</title>
 </head>
-<body>
-    <div class="divForm">
-        <form method="post" action="/login_action/">
-            <input name="username" type="text" placeholder="用户名"><br>
-            <input name="password" type="password" placeholder="密码"><br>
-            {{ error }}<br>
-            <button id="btn" type="submit">登录</button>
-            {% csrf_token %}
-        </form>
-    </div>
+<body role="document">
+
+      <div class="page-header" style="padding-top: 100px; padding-left: 400px">
+        <div id="navbar" class="navbar-collapse collapse">
+            <form class="navbar-form" method="post" action="/login_action/">
+                <input name="username" type="text" placeholder="用户名" class="form-control"><br>
+                <input name="password" type="password" placeholder="密码" class="form-control"><br>
+                {{ error }}<br>
+                <button id="btn" type="submit" class="btn btn-success">登录</button>
+                {% csrf_token %}
+                </form>
+        </div>
+      </div>
+
 </body>
 <style type="text/css">
     .divForm{
