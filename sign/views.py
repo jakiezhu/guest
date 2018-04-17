@@ -1,13 +1,10 @@
+# coding=utf-8
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from sign.models import Event, Guest
-<<<<<<< HEAD
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
-=======
->>>>>>> origin/master
 
 def index(request):
     return render(request, 'index.html')
@@ -32,7 +29,6 @@ def login_action(request):
 def event_manage(request):
     # username = request.COOKIES.get("user", '')
     event_list = Event.objects.all()
-<<<<<<< HEAD
     username = request.session.get('user', '')
     return render(request, 'event_manage.html', {'user': username, 'events': event_list})
 
@@ -49,7 +45,7 @@ def search_name(request):
 def guest_manage(request):
     guest_list = Guest.objects.all()
     username = request.session.get('user', '')
-    paginator = Paginator(guest_list, 2)
+    paginator = Paginator(guest_list, 3)
     page = request.GET.get('page')
     try:
         contacts = paginator.page(page)
@@ -65,7 +61,15 @@ def search_guest(request):
     username = request.session.get('user', '')
     name = request.GET.get('name', '')
     guest_list = Guest.objects.filter(realname__contains=name)
-    return render(request, 'guest_manage.html', {'user': username, 'guests': guest_list})
+    paginator = Paginator(guest_list, 3)
+    page = request.GET.get('page')
+    try:
+        contacts = paginator.page(page)
+    except PageNotAnInteger:
+        contacts = paginator.page(1)
+    except EmptyPage:
+        contacts = paginator.page(paginator.num_pages)
+    return render(request, 'guest_manage.html', {'user': username, 'guests': contacts})
 
 
 @login_required
@@ -111,22 +115,3 @@ def sign_index_action(request, event_id):
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect('/index/')
-=======
-    username = request.session.get('user', '')
-    return render(request, 'event_manage.html', {'user': username, 'events':event_list})
-
-
-@login_required
-def search_name(request):
-    username = request.session.get('user', '')
-    search_name = request.GET.get("name", "")
-    event_list = Event.objects.filter(name__contains=search_name)
-    return render(request, "event_manage.html", {"user": username, "events": event_list})
-
-
-@login_required
-def guest_manage(request):
-    username = request.session.get('user', '')
-    guest_list = Guest.objects.all()
-    return render(request, 'guest_manage.html', {"user": username, "guests": guest_list})
->>>>>>> origin/master

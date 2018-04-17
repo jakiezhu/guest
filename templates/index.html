@@ -7,32 +7,16 @@
     <title>发布会管理系统</title>
 </head>
 <body role="document">
-
       <div class="page-header" style="padding-top: 100px; padding-left: 400px">
         <div id="navbar" class="navbar-collapse collapse">
             <form class="navbar-form" method="post" action="/login_action/">
                 <input name="username" type="text" placeholder="用户名" class="form-control"><br>
                 <input name="password" type="password" placeholder="密码" class="form-control"><br>
                 {{ error }}<br>
-                <button id="btn" type="submit" class="btn btn-success">登录</button>
+                <button id="btn" type="submit" class="btn btn-success" style="text-align: center">登录</button>
                 {% csrf_token %}
                 </form>
         </div>
       </div>
-
 </body>
-<style type="text/css">
-    .divForm{
-        position: absolute;/*绝对定位*/
-        width: 300px;
-        height: 200px;
-
-        {#border: 1px solid red;#}
-        text-align: center;/*(让div中的内容居中)*/
-        top: 50%;
-        left: 50%;
-        margin-top: -200px;
-        margin-left: -150px;
-    }
-</style>
 </html>
