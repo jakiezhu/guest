@@ -6,7 +6,11 @@
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     <title>发布会管理系统</title>
-    <title>嘉宾列表</title>
+    <script>
+        function add_event() {
+            window.location.href = "add_event.html"
+        }
+    </script>
 </head>
 <body role="document">
     <!-- 导航栏 -->
@@ -37,9 +41,12 @@
                 </div>
                 <button type="submit" class="btn btn-success">搜索</button>
             </form>
+
         </div>
     </div>
-
+    <div style="padding-left: 30px">
+        <button type="button" class="btn btn-success" onclick="add_event()">添加发布会</button>
+    </div>
     <!-- 发布会列表 -->
     <div class="row" style="padding-top: 80px;">
         <div class="col-md-6">
